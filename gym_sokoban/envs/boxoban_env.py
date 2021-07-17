@@ -85,49 +85,47 @@ class BoxobanEnv(SokobanEnv):
         self.room_fixed, self.room_state, self.box_mapping = self.generate_room(selected_map)
 
 
+    def room_f_code(e):
+        if e == '#':
+            return 0
+
+        elif e == '@':
+            return 1
+
+        elif e == '$':
+            return 1
+
+        elif e == '.':
+            return 2
+
+        return 1
+
+    def room_s_code(e):
+        if e == '#':
+            return 0
+
+        elif e == '@':
+            return 5
+
+        elif e == '$':
+            return 4
+
+        elif e == '.':
+            return 2
+
+        return 1
+        
+
     def generate_room(self, select_map):
         room_fixed = []
         room_state = []
 
-        targets = []
-        boxes = []
-        for row in select_map:
-            room_f = []
-            room_s = []
-
-            for e in row:
-                if e == '#':
-                    room_f.append(0)
-                    room_s.append(0)
-
-                elif e == '@':
-                    self.player_position = np.array([len(room_fixed), len(room_f)])
-                    room_f.append(1)
-                    room_s.append(5)
-
-
-                elif e == '$':
-                    boxes.append((len(room_fixed), len(room_f)))
-                    room_f.append(1)
-                    room_s.append(4)
-
-                elif e == '.':
-                    targets.append((len(room_fixed), len(room_f)))
-                    room_f.append(2)
-                    room_s.append(2)
-
-                else:
-                    room_f.append(1)
-                    room_s.append(1)
-
-            room_fixed.append(room_f)
-            room_state.append(room_s)
-
+        room_fixed = [room_f_code(e) for e in row for row in select_map]
+        room_state = [room_s_code(e) for e in row for row in select_map]
 
         # used for replay in room generation, unused here because pre-generated levels
         box_mapping = {}
 
         return np.array(room_fixed), np.array(room_state), box_mapping
-
 
 
