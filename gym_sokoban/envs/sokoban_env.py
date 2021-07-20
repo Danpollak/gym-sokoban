@@ -31,6 +31,7 @@ class SokobanEnv(gym.Env):
 
         # Penalties and Rewards
         self.penalty_for_step = -0.1
+        self.penalty_for_bad_step = -0.2
         self.penalty_box_off_target = -1
         self.reward_box_on_target = 1
         self.reward_finished = 10
@@ -75,6 +76,8 @@ class SokobanEnv(gym.Env):
         self._calc_reward()
         
         done = self._check_if_done()
+
+        self._last_moved_player = moved_player
 
         # Convert the observation to RGB frame
         observation = self.render(mode=observation_mode)
@@ -161,7 +164,10 @@ class SokobanEnv(gym.Env):
         """
         # Every step a small penalty is given, This ensures
         # that short solutions have a higher reward.
-        self.reward_last = self.penalty_for_step
+        if self._last_moved_player:
+            self.reward_last = self.penalty_for_step
+        else:
+            self.reward_last = self.penalty_for_bad_step
 
         # count boxes off or on the target
         empty_targets = self.room_state == 2
