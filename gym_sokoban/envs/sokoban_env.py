@@ -36,6 +36,7 @@ class SokobanEnv(gym.Env):
         self.reward_box_on_target = 1
         self.reward_finished = 10
         self.reward_last = 0
+        self._last_moved_player = False
 
         # Other Settings
         self.viewer = None
