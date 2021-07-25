@@ -74,11 +74,11 @@ class SokobanEnv(gym.Env):
         else:
             moved_player = self._move(action)
 
+        self._last_moved_player = moved_player
+
         self._calc_reward()
         
         done = self._check_if_done()
-
-        self._last_moved_player = moved_player
 
         # Convert the observation to RGB frame
         observation = self.render(mode=observation_mode)

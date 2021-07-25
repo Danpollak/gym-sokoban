@@ -41,12 +41,17 @@ class PushAndPullSokobanEnv(SokobanEnv):
         else:
             moved_player, moved_box = self._pull(action)
 
+        self._last_moved_player = moved_player
+
         self._calc_reward()
 
         done = self._check_if_done()
 
+
+
         # Convert the observation to RGB frame
         observation = self.render(mode=observation_mode)
+
 
         info = {
             "action.name": ACTION_LOOKUP[action],
