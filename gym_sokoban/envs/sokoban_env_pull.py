@@ -41,6 +41,8 @@ class PushAndPullSokobanEnv(SokobanEnv):
         else:
             moved_player, moved_box = self._pull(action)
 
+        self._last_moved_box = moved_box
+
         self._last_moved_player = moved_player
 
         self._calc_reward()

@@ -32,11 +32,13 @@ class SokobanEnv(gym.Env):
         # Penalties and Rewards
         self.penalty_for_step = -0.1
         self.penalty_for_bad_step = -0.2
+        self.reward_moved_box = 0.05
         self.penalty_box_off_target = -1
         self.reward_box_on_target = 1
         self.reward_finished = 10
         self.reward_last = 0
         self._last_moved_player = False
+        self._last_moved_box = False
 
         # Other Settings
         self.viewer = None
@@ -170,6 +172,8 @@ class SokobanEnv(gym.Env):
         else:
             self.reward_last = self.penalty_for_bad_step
 
+        if self._last_moved_box:
+            self.reward_last += self.reward_moved_box
         # count boxes off or on the target
         empty_targets = self.room_state == 2
         player_on_target = (self.room_fixed == 2) & (self.room_state == 5)
