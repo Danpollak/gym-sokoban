@@ -2,6 +2,7 @@ from .sokoban_env import SokobanEnv
 from .sokoban_env_fixed_targets import FixedTargetsSokobanEnv
 from .sokoban_env_pull import PushAndPullSokobanEnv
 from .sokoban_env_two_player import TwoPlayerSokobanEnv
+from .sokoban_env_simple import SimpleSokobanEnv
 from .boxoban_env import BoxobanEnv
 
 
@@ -361,7 +362,7 @@ class Boxban_Env1_val(BoxobanEnv):
         super(Boxban_Env1_val, self).__init__(**kwargs)
 
 
-class SimpleSokobanEnv(PushAndPullSokobanEnv):
+class SimpleBan(SimpleSokobanEnv):
     metadata = {
         'render.modes': ['human', 'rgb_array', 'tiny_human', 'tiny_rgb_array'],
     }
@@ -371,4 +372,4 @@ class SimpleSokobanEnv(PushAndPullSokobanEnv):
         kwargs['max_steps'] = kwargs.get('max_steps', 150)
         kwargs['num_boxes'] = kwargs.get('num_boxes', 1)
         kwargs['num_gen_steps'] = kwargs.get('num_gen_steps', 50)
-        super(SimpleSokobanEnv, self).__init__(**kwargs)
+        super(SimpleBan, self).__init__(**kwargs)

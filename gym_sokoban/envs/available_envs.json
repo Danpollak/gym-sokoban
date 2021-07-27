@@ -121,6 +121,6 @@
   },
   {
     "id": "SimpleBan",
-    "entry_point": "gym_sokoban.envs:SimpleSokobanEnv"
+    "entry_point": "gym_sokoban.envs:SimpleBan"
   }
 ]
