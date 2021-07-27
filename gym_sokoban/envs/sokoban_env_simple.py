@@ -112,7 +112,7 @@ class SimpleSokobanEnv(SokobanEnv):
         starting_observation = self.render(render_mode)
         return starting_observation
 
-    def simple_map():
+    def simple_map(self):
         room_state = np.zeros((7,7)).astype(np.uint8)
         room_state[1:-1,1:-1] = 1
         room_fixed = room_state.copy()
