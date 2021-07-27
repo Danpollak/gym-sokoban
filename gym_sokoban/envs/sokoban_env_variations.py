@@ -362,7 +362,7 @@ class Boxban_Env1_val(BoxobanEnv):
         super(Boxban_Env1_val, self).__init__(**kwargs)
 
 
-class SimpleBan(SimpleSokobanEnv):
+class Simple_Sokoban_v0(SimpleSokobanEnv):
     metadata = {
         'render.modes': ['human', 'rgb_array', 'tiny_human', 'tiny_rgb_array'],
     }

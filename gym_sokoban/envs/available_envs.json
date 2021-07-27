@@ -120,7 +120,7 @@
     "entry_point": "gym_sokoban.envs:Boxban_Env1_val"
   },
   {
-    "id": "SimpleBan",
-    "entry_point": "gym_sokoban.envs:SimpleBan"
+    "id": "Simple-Sokoban-v0",
+    "entry_point": "gym_sokoban.envs:Simple_Sokoban_v0"
   }
 ]
