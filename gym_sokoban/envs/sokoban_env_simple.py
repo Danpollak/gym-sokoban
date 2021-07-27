@@ -119,7 +119,7 @@ class SimpleSokobanEnv(SokobanEnv):
         [player, box, target] = np.random.choice(9,size=3,replace=False)
         room_state[player // 3 + 2, player % 3 +2] = 5
         room_state[box // 3 + 2, box % 3 +2] = 3
-        room_state[target // 3 + 2, target % 3 +2] = 2
+        room_state[target // 3 + 2, target % 3 +2] = 4
         room_fixed[target // 3 + 2, target % 3 +2] = 2
         box_mapping = {(target // 3 + 2, target % 3 +2): (box // 3 + 2, box % 3 +2)}
         return room_fixed, room_state, box_mapping
