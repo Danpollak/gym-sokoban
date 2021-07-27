@@ -372,4 +372,4 @@ class Simple_Sokoban_v0(SimpleSokobanEnv):
         kwargs['max_steps'] = kwargs.get('max_steps', 150)
         kwargs['num_boxes'] = kwargs.get('num_boxes', 1)
         kwargs['num_gen_steps'] = kwargs.get('num_gen_steps', 50)
-        super(SimpleBan, self).__init__(**kwargs)
+        super(Simple_Sokoban_v0, self).__init__(**kwargs)
