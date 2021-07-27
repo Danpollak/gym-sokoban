@@ -6,7 +6,7 @@ import time
 # import gym_sokoban
 # This import statement registers all Sokoban environments
 # provided by this package
-env_name = 'Sokoban-v0'
+env_name = 'SimpleBan'
 env = gym.make(env_name)
 
 ACTION_LOOKUP = env.unwrapped.get_action_lookup()
