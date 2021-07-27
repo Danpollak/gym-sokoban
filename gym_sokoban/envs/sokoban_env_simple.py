@@ -122,7 +122,7 @@ class SimpleSokobanEnv(SokobanEnv):
         room_state[target // 3 + 2, target % 3 +2] = 2
         room_fixed[target // 3 + 2, target % 3 +2] = 2
         box_mapping = {(target // 3 + 2, target % 3 +2): (box // 3 + 2, box % 3 +2)}
-        return room_state, room_fixed, box_mapping
+        return room_fixed, room_state, box_mapping
 
     def get_action_lookup(self):
         return ACTION_LOOKUP
